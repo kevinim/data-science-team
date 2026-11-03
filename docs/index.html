@@ -57,7 +57,7 @@ const FALLBACK_SCHOOLS=[
 let state={ratings:[],ratingFilter:'all',zip:'75093',metric:'korean',level:'all',showZip:true,showSchools:true,allen:false,schools:[],selectedSchool:null,dest:null,times:{},schoolQuery:'',polys:{},uploaded:null,boundaries:[],initDone:false};
 const el=id=>document.getElementById(id),fmt=v=>Number(v).toLocaleString('en-US'),money=v=>'$'+fmt(v),pct=v=>v.toFixed(1)+'%',escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function toast(s){let e=el('toast');e.textContent=s;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',4000)}
-let map=null,zipGroup,schoolGroup,zoneGroup,routeGroup,targetMarker,zipMarkers,baseTiles=null,baseErrors=0,activeBase='carto';const col={elementary:'#315bd3',middle:'#078b7d',high:'#c08038'};
+let map=null,zipGroup,schoolGroup,zoneGroup,routeGroup,targetMarker,zipMarkers,baseTiles=null,baseErrors=0,activeBase='carto',boundarySeq=0;const col={elementary:'#315bd3',middle:'#078b7d',high:'#c08038'};
 function ratingKey(n){return n.toLowerCase().replace(/\b(school|h s|h s\.|h\.s\.|el|ms|high school|middle school|elementary school)\b/g,s=>s.includes('high')||s==='h s'||s==='h.s.'?'high':s==='ms'?'middle':s==='el'?'elementary':'').replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ')}
 function canonical(n){return String(n||'').toLowerCase().replace(/h\.?\s?s\.?\b/g,'high').replace(/m\.?\s?s\.?\b/g,'middle').replace(/\bsr\.?\b/g,'senior').replace(/elem\b|el\b/g,'elementary').replace(/school\b/g,'').replace(/[^a-z0-9]+/g,' ').trim()}
 function scoreRecord(n,district=''){const key=canonical(n);return state.ratings.find(r=>r.district===district&&canonical(r.name)===key)||null}
@@ -191,7 +191,31 @@ async function schoolClicked(s){
 }
 function drawSchools(){if(!map)return;schoolGroup.clearLayers();if(!state.showSchools)return;const z=map.getZoom();const items=state.schools.filter(s=>s.ll&&(state.level==='all'||s.type===state.level)&&(state.ratingFilter!=='rated'||score(s.name,s.district)!==null)&&(state.level!=='all'||z>=12||s.type!=='elementary'));items.slice(0,260).forEach(s=>{const icon=L.divIcon({className:'',html:`<div class="mapmark ${s.type}">${s.type==='elementary'?'E':s.type==='middle'?'M':'H'}</div>`,iconSize:[27,27],iconAnchor:[13,13]});L.marker(s.ll,{icon,title:s.name}).addTo(schoolGroup).on('click',()=>schoolClicked(s))})}
 function drawList(){let items=state.schools.filter(s=>(state.level==='all'||s.type===state.level)&&(state.ratingFilter!=='rated'||score(s.name,s.district)!==null)&&(!state.schoolQuery||s.name.toLowerCase().includes(state.schoolQuery)));el('schoolList').innerHTML=items.slice(0,135).map((s,i)=>{const r=score(s.name,s.district);return `<button class="school" data-sid="${state.schools.indexOf(s)}"><span><b>${escape(s.name)}</b><small>${gradeTag(s)} · ${escape(s.district||'배정 학군 확인 필요')} ${s.ll?'· 지도 위치 있음':''}</small></span><span class="score ${r===null?'nr':'rated'}">${r===null?'TEA ↗':`A · ${r}`}</span></button>`}).join('')||'<div class="muted" style="padding:14px">검색 결과 없음</div>';el('schoolCount').textContent=state.schools.length+'개 학교 · 위치 '+state.schools.filter(s=>s.ll).length+'개';el('schoolList').querySelectorAll('button').forEach(b=>b.onclick=()=>schoolClicked(state.schools[+b.dataset.sid]))}
-async function drawBoundary(){if(!map)return;zoneGroup.clearLayers();if(state.selectedSchool){const s=state.selectedSchool;let matched=0;if(state.uploaded){for(const f of state.uploaded.features||[]){const p=f.properties||{};const n=p.school||p.SchoolName||p.school_name||p.NAME||'';if(canonical(n)===canonical(s.name)){const l=L.geoJSON(f,{style:{color:'#e28820',weight:3,fillColor:'#ffca77',fillOpacity:.28}}).addTo(zoneGroup);matched++;map.fitBounds(l.getBounds(),{maxZoom:13})}}}
+
+async function showPlanoHistoricBoundary(s,seq){
+ const name=String(s.name||'');
+ const level=s.type==='elementary'?0:s.type==='middle'?2:/senior|sr\b/i.test(name)?3:1;
+ const fld=['ELEM_NAME','HIGH_NAME','MID_NAME','CAMPUS'][level];
+ const term=name.toUpperCase().replace(/\b(ELEMENTARY|SCHOOL|MIDDLE|SENIOR|SR|HIGH|H S)\b/g,'').replace(/[^A-Z0-9 ]/g,' ').trim().split(/\s+/).filter(Boolean).slice(0,3).join(' ');
+ if(!term)return;
+ const base='https://maps.planogis.org/arcgiswad/rest/services/OpenData/SchoolAttendanceZones/FeatureServer/'+level+'/query';
+ const p=new URLSearchParams({where:fld+" LIKE '%"+term.replaceAll("'","''")+"%'",outFields:fld+',ISD',returnGeometry:'true',outSR:'4326',f:'geojson',geometryPrecision:'5',maxAllowableOffset:'0.0002'});
+ try{
+  const res=await fetch(base+'?'+p);if(!res.ok)throw Error('HTTP '+res.status);
+  const j=await res.json();if(seq!==boundarySeq||state.selectedSchool!==s)return;
+  const features=(j.features||[]).filter(f=>f.geometry&&f.properties);
+  const n=el('zoneNotice');
+  if(!features.length){if(n)n.textContent='2019–20 자료에서 이 학교의 경계를 찾지 못했습니다. 현재 배정은 공식 Plano ISD에서 확인하세요.';return}
+  const layer=L.geoJSON({type:'FeatureCollection',features},{style:{color:'#c25b22',weight:2.7,dashArray:'8 6',fillColor:'#ffc27a',fillOpacity:0.19}}).addTo(zoneGroup);
+  if(layer.getBounds().isValid())map.fitBounds(layer.getBounds(),{maxZoom:12,padding:[35,35]});
+  if(n)n.innerHTML='<b>주의 — 현재 배정구역이 아닙니다.</b> 주황색 점선은 Plano GIS가 공개한 <b>2019–20학년도 역사적 경계</b>입니다. 2026–27 배정 가능 주소는 반드시 Plano ISD 공식 조회를 이용하세요.';
+ }catch(e){
+  console.warn('Historical Plano attendance boundary:',e);
+  if(seq===boundarySeq&&state.selectedSchool===s){const n=el('zoneNotice');if(n)n.textContent='과거 Plano GIS를 조회할 수 없습니다. 공식 Plano ISD에서 현재 학교 배정구역을 확인하세요.';}
+ }
+}
+
+async function drawBoundary(){if(!map)return;const seq=++boundarySeq;zoneGroup.clearLayers();if(state.selectedSchool){const s=state.selectedSchool;let matched=0;if(s.district==='PISD')showPlanoHistoricBoundary(s,seq);if(state.uploaded){for(const f of state.uploaded.features||[]){const p=f.properties||{};const n=p.school||p.SchoolName||p.school_name||p.NAME||'';if(canonical(n)===canonical(s.name)){const l=L.geoJSON(f,{style:{color:'#e28820',weight:3,fillColor:'#ffca77',fillOpacity:.28}}).addTo(zoneGroup);matched++;map.fitBounds(l.getBounds(),{maxZoom:13})}}}
 if(state.allen&&s.district==='AISD'){const t=s.type==='elementary'?'Elementary':s.type==='middle'?'Middle':'High_School';try{const url=`https://gismaps.cityofallen.org/arcgis/rest/services/ReferenceData/School_Attendance_Boundary_${t}/MapServer/0/query`;const q=new URLSearchParams({where:`SchoolName='${s.name.replaceAll("'","''")}'`,outFields:'SchoolName,YearUpdated',outSR:'4326',returnGeometry:'true',f:'geojson'});const j=await (await fetch(url+'?'+q)).json();if(j.features?.length){const layer=L.geoJSON(j,{style:{color:'#db9b46',weight:3,fillColor:'#f8c06e',fillOpacity:.3}}).addTo(zoneGroup);map.fitBounds(layer.getBounds(),{maxZoom:13});matched+=j.features.length;let z=el('zoneNotice');if(z)z.innerHTML='<b>Allen historical GIS overlay:</b> '+j.features.map(f=>escape(f.properties.YearUpdated||'year unverified')).join(', ')+'년 표기 데이터. 반드시 Allen ISD에서 2026–27 구역을 다시 확인하세요.'}}catch(e){console.warn('Allen zone error',e)}}if(matched){let x=el('zoneNotice');if(x&&!state.allen)x.innerHTML=`업로드한 GeoJSON에서 ${matched}개 경계가 표시되었습니다. 공식 배정은 학군에서 검증해야 합니다.`}}
 else if(state.allen){const url='https://gismaps.cityofallen.org/arcgis/rest/services/ReferenceData/School_Attendance_Boundary_Elementary/MapServer/0/query';try{const q=new URLSearchParams({where:'1=1',outFields:'SchoolName,YearUpdated',outSR:'4326',f:'geojson'});const j=await (await fetch(url+'?'+q)).json();if(j.features?.length)L.geoJSON(j,{style:{color:'#cf9140',weight:1.5,fillOpacity:.08}}).addTo(zoneGroup)}catch(e){console.warn(e)}}}
 async function loadBoundaryFile(e){const f=e.target.files?.[0];if(!f)return;try{const j=JSON.parse(await f.text());if(j.type!=='FeatureCollection'||!Array.isArray(j.features))throw Error('FeatureCollection JSON이어야 합니다');state.uploaded=j;toast(j.features.length+'개 polygon 데이터 파일을 불러왔습니다. 학교를 클릭해 구역을 확인하세요.');drawBoundary()}catch(e){toast('GeoJSON 파일 오류: '+e.message)}}
