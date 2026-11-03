@@ -232,7 +232,18 @@ function drawBoundary(){
  const geo=state.zoneData[s.district]||[];
  const target=zoneNameKey(s.name);
  const levels=s.type==='high'?['high','senior']:s.type==='elementary'?['elementary']:['middle'];
- const found=geo.filter(f=>levels.includes(f.properties?.gradeLevel)&&zoneNameKey(f.properties?.school)===target);
+ const eligible=geo.filter(f=>levels.includes(f.properties?.gradeLevel));
+ let found=eligible.filter(f=>zoneNameKey(f.properties?.school)===target);
+ // Allen's recent campus names sometimes add honorees' full names, while the GIS uses only surnames.
+ // Use a last-name alias only if it uniquely identifies a campus within the grade-level/district.
+ if(!found.length&&s.district==='AISD'){
+   const last=target.split(' ').at(-1);
+   if(last&&last.length>=4){
+     const bySurname=eligible.filter(f=>zoneNameKey(f.properties?.school)===last);
+     const distinct=[...new Set(bySurname.map(f=>zoneNameKey(f.properties.school)))];
+     if(distinct.length===1)found=bySurname;
+   }
+ }
  if(found.length){
   const layer=L.geoJSON({type:'FeatureCollection',features:found},{style:{color:'#d37125',weight:3,dashArray:'7 5',fillColor:'#ffc078',fillOpacity:.25}}).addTo(zoneGroup);
   if(layer.getBounds().isValid())map.fitBounds(layer.getBounds(),{padding:[28,28],maxZoom:13});
