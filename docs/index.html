@@ -285,8 +285,9 @@ async function loadBoundaryData(){
 function addFriscoBoundarySchools(){
  for(const f of state.zoneData.FISD||[]){
   const p=f.properties, key=zoneNameKey(p.school).replace(/\bk\s*4\b/g,'').trim();
-  if(state.schools.some(s=>s.district==='FISD'&&s.type===p.gradeLevel&&zoneNameKey(s.name).replace(/\bk\s*4\b/g,'').trim()===key))continue;
   const ll=p.location&&Number.isFinite(p.location.lat)&&Number.isFinite(p.location.lng)?[p.location.lat,p.location.lng]:null;
+  const existing=state.schools.find(s=>s.district==='FISD'&&s.type===p.gradeLevel&&zoneNameKey(s.name).replace(/\bk\s*4\b/g,'').trim()===key);
+  if(existing){if(!existing.ll&&ll)existing.ll=ll;if(!existing.address&&p.address)existing.address=p.address;continue}
   addSchool({name:p.school,type:p.gradeLevel,district:'FISD',address:p.address,ll,source:'Frisco ISD 2026–27'});
  }
  state.schools.sort((a,b)=>a.name.localeCompare(b.name));
