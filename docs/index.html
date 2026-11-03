@@ -10,11 +10,24 @@
 <header class="top"><div class="top-in"><div class="brand">NORTH DALLAS <span style="color:#91aaff">/</span> NEIGHBORHOOD EXPLORER<small>Plano · Frisco · Allen · Prosper · The Colony · Carrollton</small></div><div class="toplinks"><a href="https://txschools.gov/" target="_blank" rel="noopener">TEA School Ratings</a><a href="https://www.friscoisd.org/page/2026-2027-zones/" target="_blank" rel="noopener">2026–27 Frisco Zones</a><a href="https://www.pisd.edu/district-resources/schools-facilities/schools-other-facilities/attendance-boundary-descriptions" target="_blank" rel="noopener">Plano Zones</a></div></div></header>
 <div class="shell"><div class="heading"><div><div class="eyebrow">RELOCATION RESEARCH DASHBOARD · MVP</div><h1>어느 동네에서 살면 좋을까?</h1><div class="muted">민족 구성 · 자녀 비율 · 소득 · 학교 위치 · 배정구역 확인 · 통근 경로를 한 번에 비교</div></div><span class="pill">ACS 2024 · TEA 2026 A-rated campus scores</span></div>
 <div class="kpis"><div class="kpi"><label>선택 지역</label><strong id="k-zip">75093</strong><small id="k-area">West Plano</small></div><div class="kpi"><label>한국계 인구</label><strong id="k-korean">1.1%</strong><small>ZIP 전체 인구 대비</small></div><div class="kpi"><label>미성년자 있는 가구</label><strong id="k-households">28.3%</strong><small>전체 가구 대비</small></div><div class="kpi"><label>중위 가구 소득</label><strong id="k-income">$124,563</strong><small>2024 dollars / annual</small></div></div>
-<div class="main"><aside class="panel"><h2>필터 &amp; 비교 기준</h2><div class="field"><label>지역 선택</label><select id="zipSelect"></select></div><div class="field"><label>ZIP 경계 색상 기준</label><select id="metric"><option value="korean">한국계 비율</option><option value="indian">인도계 비율</option><option value="chinese">중국계 비율</option><option value="vietnamese">베트남계 비율</option><option value="kids">18세 미만 인구</option><option value="childHH">자녀가 있는 가구</option><option value="income">중위 가구 소득</option></select></div><div class="field"><label>학교 유형 필터</label><div class="seg" id="levels"><button class="active" data-v="all">전체</button><button data-v="elementary">초등</button><button data-v="middle">중등</button><button data-v="high">고등</button></div></div><div class="field"><label>2026 TEA 학교 점수</label><select id="ratingFilter"><option value="all">전체 (점수 미확인 포함)</option><option value="rated">점수 확인된 학교만</option></select></div><label class="check"><input type="checkbox" id="zipOverlay" checked> ZIP 통계 구역 표시</label><label class="check"><input type="checkbox" id="schoolOverlay" checked> 학교 위치 마커 표시</label><label class="check"><input type="checkbox" id="historicOverlay" checked> 학교 클릭 시 공개된 과거 GIS 경계 보기</label><div class="small-note" id="mapLoadStatus">ZIP 경계와 학교 위치 데이터를 불러오는 중…</div><hr class="rule"><h2>통근 목적지</h2><div class="field"><label>회사 주소 또는 목적지</label><input id="destination" placeholder="예: 5000 Legacy Dr, Plano, TX" autocomplete="street-address"></div><button id="calcCommute" class="btn">ZIP별 운전 시간 계산</button><div class="source">도로망 기반 예상치이며 출퇴근 시간대 실제 교통량은 반영되지 않을 수 있습니다. Google Maps에서 실시간 경로 재확인.</div><div id="routeStatus" style="margin-top:12px;font-size:11px;color:#6c7b90"></div><hr class="rule"><h2>학교 배정구역 (자동 연결)</h2>
+<div class="main"><aside class="panel"><h2>필터 &amp; 비교 기준</h2><div class="field"><label>지역 선택</label><select id="zipSelect"></select></div><div class="field"><label>ZIP 경계 색상 기준</label><select id="metric"><option value="korean">한국계 비율</option><option value="indian">인도계 비율</option><option value="chinese">중국계 비율</option><option value="vietnamese">베트남계 비율</option><option value="kids">18세 미만 인구</option><option value="childHH">자녀가 있는 가구</option><option value="income">중위 가구 소득</option></select></div><div class="field"><label>학교 유형 필터</label><div class="seg" id="levels"><button class="active" data-v="all">전체</button><button data-v="elementary">초등</button><button data-v="middle">중등</button><button data-v="high">고등</button></div></div><div class="field"><label>2026 TEA 학교 점수</label><select id="ratingFilter"><option value="all">전체 (점수 미확인 포함)</option><option value="rated">점수 확인된 학교만</option></select></div><label class="check"><input type="checkbox" id="zipOverlay" checked> ZIP 통계 구역 표시</label><label class="check"><input type="checkbox" id="schoolOverlay" checked> 학교 위치 마커 표시</label><label class="check"><input type="checkbox" id="historicOverlay" checked> 학교 클릭 시 배정구역 보기</label><div class="small-note" id="mapLoadStatus">ZIP 경계와 학교 위치 데이터를 불러오는 중…</div><hr class="rule"><h2>통근 목적지</h2><div class="field"><label>회사 주소 또는 목적지</label><input id="destination" placeholder="예: 5000 Legacy Dr, Plano, TX" autocomplete="street-address"></div><button id="calcCommute" class="btn">ZIP별 운전 시간 계산</button><div class="source">도로망 기반 예상치이며 출퇴근 시간대 실제 교통량은 반영되지 않을 수 있습니다. Google Maps에서 실시간 경로 재확인.</div><div id="routeStatus" style="margin-top:12px;font-size:11px;color:#6c7b90"></div><hr class="rule"><h2>학교 배정구역 (자동 연결)</h2>
 <div class="small-note" id="zoneDatasetStatus">Plano · Allen의 공식 시청 GIS 도형을 자동으로 불러오는 중…</div>
-<p class="source" style="margin-top:10px"><strong>중요:</strong> 지도의 주황색 점선은 이전 학년도 배정구역 참고용입니다. 이사·입학 결정 전에는 반드시 각 학군의 2026–27 공식 주소별 배정 검색으로 최종 확인해야 합니다. GeoJSON 수동 업로드는 필요하지 않습니다.</p>
+<p class="source" style="margin-top:10px"><strong>중요:</strong> 녹색은 Frisco 2026–27 공식 검색기 경계, 주황색 점선은 이전 학년도 참고용입니다. 이사·입학 결정 전에는 반드시 각 학군의 2026–27 공식 주소별 배정 검색으로 최종 확인해야 합니다. GeoJSON 수동 업로드는 필요하지 않습니다.</p>
+<div class="small-note"><strong>학군별 공식 배정 확인</strong><br>아래 링크에서 실제 주소와 학년을 확인하세요. 조사일: 2026-11-03.<br>
+<a class="cardlink" href="https://www.pisd.edu/district-resources/schools-facilities/schools-other-facilities/schoolfinder" target="_blank" rel="noopener">Plano ↗</a>
+<a class="cardlink" href="https://www.friscoisd.org/page/2026-2027-zones/" target="_blank" rel="noopener">Frisco ↗</a>
+<a class="cardlink" href="https://www.allenisd.org/page/findaschool" target="_blank" rel="noopener">Allen ↗</a>
+<a class="cardlink" href="https://www.prosper-isd.net/page/attendance-boundaries/" target="_blank" rel="noopener">Prosper ↗</a>
+<a class="cardlink" href="https://www.lisd.net/resources/families/school-locator" target="_blank" rel="noopener">Lewisville ↗</a>
+<a class="cardlink" href="https://www.cfbisd.edu/students/school-maps-locator-system" target="_blank" rel="noopener">Carrollton–Farmers Branch ↗</a>
+<p><strong>지도 도형 검증 상태:</strong> Frisco 2026–27 공식 검색기 경계 확인. Plano·Allen은 과거 경계만 표시. Prosper·Lewisville·Carrollton–Farmers Branch는 최신 도형 적용 여부 미확정이며 공식 검색기를 이용하세요.</p>
+<p>Plano 공식 검색기의 연결 GIS는 2025–26 레이어명으로 표시되어 현재 학년도 여부를 별도 확인 중입니다. 학군에 최종 확인하세요.</p>
+<p>Frisco의 Nelson 배정구역 신규 학생은 2026–27에 Wester로 배정되는 예외가 있습니다. <a href="https://www.friscoisd.org/page/2026-2027-zones/" target="_blank" rel="noopener">학군 안내 확인 ↗</a></p>
+<p>Prosper 2027–28 중학교 경계는 검토 중입니다. 학군은 2026년 11월 16일 이사회에 최종안을 제시할 예정이라고 밝혔습니다. <a href="https://www.prosper-isd.net/article/3206562" target="_blank" rel="noopener">학군 일정 확인 ↗</a></p>
+<p>다른 학군의 2027–28 학교별 경계 확정 여부는 아직 확인되지 않았습니다. 이 지도는 2027–28 배정을 표시하지 않습니다.</p>
+</div>
 </aside>
-<div class="mapbox"><div class="maphead"><h2>Interactive Area Map</h2><label class="basemap-control" for="baseMap">지도 배경 <select id="baseMap" aria-label="지도 배경"><option value="osm">OpenStreetMap</option><option value="esri">Esri Streets</option></select></label><div class="legend"><span>초등</span><span>중등</span><span>고등</span></div></div><div id="map"></div><div id="tileStatus" class="map-foot" role="status" aria-live="polite" hidden></div><div class="map-foot" id="mapHelp">ZIP 도형이나 아래 비교표에서 지역을 선택하세요. 전체 필터에서 초등학교 마커는 지도 확대 12단계부터 나타납니다. 학교 마커를 누르면 학교 정보와 배정 확인 링크가 표시됩니다. ZIP 통계구역과 학교별 과거 GIS 경계를 구분합니다. 최신 Frisco·Prosper 구역은 학교 선택 후 공식 2026–27 배정지도에서 확인합니다.</div></div>
+<div class="mapbox"><div class="maphead"><h2>Interactive Area Map</h2><label class="basemap-control" for="baseMap">지도 배경 <select id="baseMap" aria-label="지도 배경"><option value="osm">OpenStreetMap</option><option value="esri">Esri Streets</option></select></label><div class="legend"><span>초등</span><span>중등</span><span>고등</span></div></div><div id="map"></div><div id="tileStatus" class="map-foot" role="status" aria-live="polite" hidden></div><div class="map-foot" id="mapHelp">ZIP 도형이나 아래 비교표에서 지역을 선택하세요. 전체 필터에서 초등학교 마커는 지도 확대 12단계부터 나타납니다. 학교 마커를 누르면 학교 정보와 배정 확인 링크가 표시됩니다. ZIP 통계구역과 학교별 배정구역을 구분합니다. Frisco는 녹색으로 2026–27 경계를, Plano·Allen은 주황색 점선으로 과거 경계를 표시합니다. 실제 배정은 학군에 확인하세요.</div></div>
 <aside class="panel detail"><div class="eyebrow">AREA INSIGHTS / SCHOOL INSPECTOR</div><div id="detailContent"></div></aside></div>
 <div class="section"><section class="panel"><div class="secHead"><h2>초·중·고 학교 찾기</h2><span class="pill" id="schoolCount">조회 중</span></div><div class="searchrow"><input id="schoolSearch" placeholder="학교 이름 검색 (예: Wakeland, Rice, Lawler)"><button id="schoolSearchClear">초기화</button></div><div class="school-list" id="schoolList"></div><div class="source">학교 지도 좌표는 Plano City GIS의 2022년 자료와 2026년 학교 주소 기반 고신뢰도 지오코딩 자료를 함께 사용합니다. 2026 TEA A등급 캠퍼스 점수는 출처를 확인한 학교에만 표시합니다. 점수 미표시는 B·C·D·F 등급을 뜻하지 않습니다. 최신 주소, 개교 및 학교 배정은 해당 학군에서 반드시 확인하세요.</div></section>
 <section class="panel"><div class="secHead"><h2>지역 전체 비교</h2><span class="pill">ZIP 별</span></div><div class="scroll-table"><table class="data-table" id="compareTable"><thead><tr><th>지역</th><th>한국</th><th>인도</th><th>중국</th><th>18세 미만</th><th>자녀가구</th><th>중위 소득</th><th>통근*</th></tr></thead><tbody></tbody></table></div><div class="source">*통근은 사용자가 목적지를 입력하여 계산한 ZIP 대표 지점 기준으로 표시합니다. 동네 내 실제 주소마다 달라집니다. Census ZCTA 경계는 USPS 배달 ZIP과 완전히 일치하지 않습니다.</div></section></div>
@@ -35,7 +48,7 @@ const DATA=[
 {z:'75056',name:'The Colony',pop:69628,korean:3.8,indian:7.4,chinese:1.8,vietnamese:2.5,filipino:1.0,kids:20.4,childHH:30.7,income:119682,age:37.4,ll:[33.089,-96.887]},
 {z:'75010',name:'Carrollton North',pop:33326,korean:7.5,indian:7.7,chinese:2.6,vietnamese:3.1,filipino:1.7,kids:20.5,childHH:31.6,income:107317,age:38.4,ll:[33.045,-96.918]}
 ];
-const OFFICIAL={PISD:'https://www.pisd.edu/district-resources/schools-facilities/schools-other-facilities/attendance-boundary-descriptions',FISD:'https://www.friscoisd.org/page/2026-2027-zones/',AISD:'https://www.allenisd.org/page/findaschool',PROSPER:'https://www.prosper-isd.net/page/attendance-boundaries/',LISD:'https://www.lisd.net/resources/families/school-locator',CFB:'https://www.cfbisd.edu/students/school-maps-locator-system'};
+const OFFICIAL={PISD:'https://www.pisd.edu/district-resources/schools-facilities/schools-other-facilities/schoolfinder',FISD:'https://www.friscoisd.org/page/2026-2027-zones/',AISD:'https://www.allenisd.org/page/findaschool',PROSPER:'https://www.prosper-isd.net/page/attendance-boundaries/',LISD:'https://www.lisd.net/resources/families/school-locator',CFB:'https://www.cfbisd.edu/students/school-maps-locator-system'};
 const PROSPER_MAPS={elementary:'https://aptg.co/vgDpkm',middle:'https://aptg.co/ty_VGv',high:'https://aptg.co/hmz4Ps'};
 const FISD_MAPS={elementary:'https://www.friscoisd.org/docs/default-source/attendance-zones/2026-27/2026-27-elementary-school.pdf?sfvrsn=692050e1_3',middle:'https://sf1.friscoisd.org/docs/default-source/attendance-zones/2026-27/2026-27-middle-school.pdf?sfvrsn=4e66667_3',high:'https://www.friscoisd.org/docs/default-source/attendance-zones/2026-27/2026-27-high-school.pdf?sfvrsn=1bf3f52f_3'};
 const RATINGS={}; // School-level numeric ratings are not yet verified against TEA.
@@ -74,7 +87,7 @@ function niceMetric(v,k=state.metric){return k==='income'?money(v):pct(v)}
 function metricLabel(k){return ({korean:'한국계',indian:'인도계',chinese:'중국계',vietnamese:'베트남계',kids:'18세 미만',childHH:'미성년자 동거 가구',income:'중위 가구 소득'})[k]}
 function shade(v){const a=DATA.map(d=>d[state.metric]);const mn=Math.min(...a),mx=Math.max(...a);const t=mx===mn?.5:(v-mn)/(mx-mn);return `hsl(${213-24*t} 65% ${88-46*t}%)`}
 function init(){DATA.forEach(d=>{let o=document.createElement('option');o.value=d.z;o.textContent=`${d.z} · ${d.name}`;el('zipSelect').appendChild(o)});el('zipSelect').value=state.zip;el('zipSelect').onchange=e=>selectZip(e.target.value);el('metric').onchange=e=>{state.metric=e.target.value;drawZip();drawDetail();drawTable()};el('ratingFilter').onchange=e=>{state.ratingFilter=e.target.value;drawSchools();drawList()};el('zipOverlay').onchange=e=>{state.showZip=e.target.checked;drawZip()};el('schoolOverlay').onchange=e=>{state.showSchools=e.target.checked;drawSchools()};el('historicOverlay').onchange=e=>{state.showHistoric=e.target.checked;drawBoundary()};el('levels').onclick=e=>{const b=e.target.closest('button');if(!b)return;state.level=b.dataset.v;[...el('levels').children].forEach(x=>x.classList.toggle('active',x===b));drawSchools();drawList()};el('schoolSearch').oninput=e=>{state.schoolQuery=e.target.value.toLowerCase();drawList()};el('schoolSearchClear').onclick=()=>{el('schoolSearch').value='';state.schoolQuery='';drawList()};el('calcCommute').onclick=calcCommute;el('destination').onkeydown=e=>{if(e.key==='Enter')calcCommute()};el('baseMap').onchange=e=>setBaseMap(e.target.value);
-renderData();drawList();if(window.L){map=L.map('map',{zoomControl:true,preferCanvas:true}).setView([33.129,-96.785],11);setBaseMap('osm');zipGroup=L.featureGroup().addTo(map);schoolGroup=L.featureGroup().addTo(map);zoneGroup=L.featureGroup().addTo(map);routeGroup=L.featureGroup().addTo(map);zipMarkers=L.featureGroup().addTo(map);map.on('zoomend',drawSchools);loadZipShapes();loadBoundaryData();loadSchools().then(loadRatings).then(loadExtra2026SchoolLocations);setTimeout(()=>map.invalidateSize(),250)}else{el('map').innerHTML='<div style="padding:30px;color:#53647a">미리보기 또는 브라우저에서 지도 라이브러리 로딩에 실패했습니다. GitHub Pages 정식 주소를 이용하거나 브라우저 연결을 확인하세요. 아래 인구 비교표와 기본 학교 목록은 사용할 수 있습니다.</div>';el('mapLoadStatus').textContent='Leaflet 지도를 로드하지 못했습니다.';state.schools=FALLBACK_SCHOOLS;drawList();}}
+renderData();drawList();if(window.L){map=L.map('map',{zoomControl:true,preferCanvas:true}).setView([33.129,-96.785],11);setBaseMap('osm');zipGroup=L.featureGroup().addTo(map);schoolGroup=L.featureGroup().addTo(map);zoneGroup=L.featureGroup().addTo(map);routeGroup=L.featureGroup().addTo(map);zipMarkers=L.featureGroup().addTo(map);map.on('zoomend',drawSchools);loadZipShapes();loadBoundaryData();loadSchools().then(loadRatings).then(loadExtra2026SchoolLocations).then(addFriscoBoundarySchools);setTimeout(()=>map.invalidateSize(),250)}else{el('map').innerHTML='<div style="padding:30px;color:#53647a">미리보기 또는 브라우저에서 지도 라이브러리 로딩에 실패했습니다. GitHub Pages 정식 주소를 이용하거나 브라우저 연결을 확인하세요. 아래 인구 비교표와 기본 학교 목록은 사용할 수 있습니다.</div>';el('mapLoadStatus').textContent='Leaflet 지도를 로드하지 못했습니다.';state.schools=FALLBACK_SCHOOLS;drawList();}}
 
 function setBaseMap(choice, fallbackFrom=null){
  if(!map)return;
@@ -227,9 +240,28 @@ function drawList(){let items=state.schools.filter(s=>(state.level==='all'||s.ty
 function zoneNameKey(name){
  return String(name||'').toLowerCase().replace(/\b(dr|doctor|elementary|middle|senior|sr|high|school|campus)\b/g,'').replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ');
 }
+function convertFriscoZones(data){
+ const types={'Elementary':'elementary','Middle School':'middle','High School':'high'};
+ if(!Array.isArray(data)||!data.length)throw Error('Frisco 경계 데이터 형식 오류');
+ return data.map((z,i)=>{
+  if(!z.name||!z.grades||!types[z.type]||!Array.isArray(z.border)||!z.border.length)throw Error('Frisco 경계 항목 오류 '+i);
+  const coordinates=z.border.map(poly=>poly.map(ring=>{
+   if(!Array.isArray(ring)||ring.length<3)throw Error('Frisco 경계 좌표 오류 '+i);
+   const points=ring.map(([lng,lat])=>{
+    if(!Number.isFinite(lng)||lng>=-96||lng<=-98||!Number.isFinite(lat)||lat<=32||lat>=34)throw Error('Frisco 경계 좌표 범위 오류 '+i);
+    return [lng,lat];
+   });
+   const a=points[0],b=points[points.length-1];
+   if(a[0]!==b[0]||a[1]!==b[1])points.push(a);
+   return points;
+  }));
+  return {type:'Feature',properties:{school:z.name,gradeLevel:types[z.type],grades:z.grades,sourceVintage:'2026–27',address:z.address,location:z.location},geometry:{type:'MultiPolygon',coordinates}};
+ });
+}
 async function loadBoundaryData(){
  const sources=[
-  {district:'PISD',url:'./plano-attendance-2019.geojson',label:'Plano 2019–20'},
+  {district:'FISD',url:'https://static.friscoisd.org/js/json/school.borders.2627.json',label:'Frisco 2026–27 (공식 검색기)'},
+  {district:'PISD',url:'./plano-attendance-2019.geojson',label:'Plano 2019–20 (과거)'},
   {district:'AISD',url:'./allen-attendance-historical.geojson',label:'Allen 2019·2023'}
  ];
  const results=await Promise.all(sources.map(async x=>{
@@ -237,14 +269,28 @@ async function loadBoundaryData(){
    const r=await fetch(x.url,{cache:'no-store'});
    if(!r.ok)throw Error('HTTP '+r.status);
    const j=await r.json();
-   if(j.type!=='FeatureCollection'||!Array.isArray(j.features))throw Error('GeoJSON 형식 오류');
-   state.zoneData[x.district]=j.features.filter(f=>f.geometry&&f.properties?.school);
+   if(x.district==='FISD')state.zoneData.FISD=convertFriscoZones(j);
+   else{
+    if(j.type!=='FeatureCollection'||!Array.isArray(j.features))throw Error('GeoJSON 형식 오류');
+    state.zoneData[x.district]=j.features.filter(f=>f.geometry&&f.properties?.school);
+   }
    return x.label+': '+state.zoneData[x.district].length+'개';
   }catch(e){console.error('Zone data '+x.label,e);state.zoneData[x.district]=[];return x.label+': 오류 ('+e.message+')'}
  }));
  state.zoneReady=true;
- el('zoneDatasetStatus').innerHTML=results.map(escape).join('<br>')+'<br><b>현재 학년도 자료는 아님</b>';
+ el('zoneDatasetStatus').innerHTML=results.map(escape).join('<br>')+'<br><b>Plano·Allen 도형은 과거 자료</b>';
+ addFriscoBoundarySchools();
  if(state.selectedSchool)drawBoundary();
+}
+function addFriscoBoundarySchools(){
+ for(const f of state.zoneData.FISD||[]){
+  const p=f.properties, key=zoneNameKey(p.school).replace(/\bk\s*4\b/g,'').trim();
+  if(state.schools.some(s=>s.district==='FISD'&&s.type===p.gradeLevel&&zoneNameKey(s.name).replace(/\bk\s*4\b/g,'').trim()===key))continue;
+  const ll=p.location&&Number.isFinite(p.location.lat)&&Number.isFinite(p.location.lng)?[p.location.lat,p.location.lng]:null;
+  addSchool({name:p.school,type:p.gradeLevel,district:'FISD',address:p.address,ll,source:'Frisco ISD 2026–27'});
+ }
+ state.schools.sort((a,b)=>a.name.localeCompare(b.name));
+ drawSchools();drawList();
 }
 function drawBoundary(){
  if(!map)return;
@@ -253,14 +299,14 @@ function drawBoundary(){
  if(!s)return;
  const note=el('zoneNotice');
  if(!state.showHistoric){
-  if(note)note.innerHTML='과거 경계 표시가 꺼져 있습니다. 현재 배정구역은 학군의 2026–27 공식 주소 검색으로 확인하세요.';
+  if(note)note.innerHTML='배정구역 표시가 꺼져 있습니다. 현재 배정구역은 학군의 공식 주소 검색으로 확인하세요.';
   return;
  }
  const geo=state.zoneData[s.district]||[];
- const target=zoneNameKey(s.name);
+ const target=zoneNameKey(s.name).replace(/\bk\s*4\b/g,'').trim();
  const levels=s.type==='high'?['high','senior']:s.type==='elementary'?['elementary']:['middle'];
  const eligible=geo.filter(f=>levels.includes(f.properties?.gradeLevel));
- let found=eligible.filter(f=>zoneNameKey(f.properties?.school)===target);
+ let found=eligible.filter(f=>zoneNameKey(f.properties?.school).replace(/\bk\s*4\b/g,'').trim()===target);
  // Allen's recent campus names sometimes add honorees' full names, while the GIS uses only surnames.
  // Use a last-name alias only if it uniquely identifies a campus within the grade-level/district.
  if(!found.length&&s.district==='AISD'){
@@ -272,14 +318,16 @@ function drawBoundary(){
    }
  }
  if(found.length){
-  const layer=L.geoJSON({type:'FeatureCollection',features:found},{style:{color:'#d37125',weight:3,dashArray:'7 5',fillColor:'#ffc078',fillOpacity:.25}}).addTo(zoneGroup);
+  const current=s.district==='FISD';
+  const layer=L.geoJSON({type:'FeatureCollection',features:found},{style:{color:current?'#087f69':'#d37125',weight:3,dashArray:current?null:'7 5',fillColor:current?'#70cbb4':'#ffc078',fillOpacity:.25}}).addTo(zoneGroup);
   if(layer.getBounds().isValid())map.fitBounds(layer.getBounds(),{padding:[28,28],maxZoom:13});
   const yrs=[...new Set(found.map(f=>f.properties?.sourceVintage).filter(Boolean))].join(', ');
-  if(note)note.innerHTML='<b style="color:#ab531b">과거 GIS 경계 '+escape(yrs)+' (현재 배정 보장 X)</b> · 주황색 점선 '+found.length+'개 도형 표시. 실제 2026–27 배정은 해당 주소로 공식 학군 검색에서 확인하세요.';
- }else if(!state.zoneReady&&['AISD','PISD'].includes(s.district)){
-  if(note)note.textContent='과거 GIS 배정구역을 불러오는 중입니다…';
+  const grades=[...new Set(found.map(f=>f.properties?.grades).filter(Boolean))].join(', ');
+  if(note)note.innerHTML=current?'<b>Frisco 공식 검색기 경계 '+escape(yrs)+'</b> · 녹색 도형, 학년 '+escape(grades)+(grades.includes(',')?' (여러 학년의 구역을 함께 표시)':'')+'. 배정 예외와 정원 제한이 있을 수 있으므로 학군에 최종 확인하세요.':'<b style="color:#ab531b">과거 GIS 경계 '+escape(yrs)+' (현재 배정 보장 X)</b> · 주황색 점선 '+found.length+'개 도형 표시. 실제 2026–27 배정은 해당 주소로 공식 학군 검색에서 확인하세요.';
+ }else if(!state.zoneReady&&['AISD','PISD','FISD'].includes(s.district)){
+  if(note)note.textContent='배정구역 데이터를 불러오는 중입니다…';
  }else if(note){
-  note.innerHTML=(s.district==='FISD'||s.district==='PROSPER')?'2026–27 최신 배정구역은 학군 공식 PDF와 주소검색으로 확인 가능합니다. 승인된 최신 학교별 GeoJSON은 확보하지 못했으므로 임의로 경계를 그리지 않습니다.':'해당 학교의 확인 가능한 도형이 없습니다. 학군 공식 주소검색을 이용하세요.';
+  note.innerHTML='이 학교의 지도 경계를 표시할 수 없습니다. 현재 배정은 학군 공식 주소검색에서 확인하세요.';
  }
 }
 
@@ -289,4 +337,6 @@ function drawCommute(){const vals=Object.values(state.times);if(!vals.length){el
 async function drawSelectedRoute(){if(!map||!state.dest)return;routeGroup.clearLayers();const d=getZip(),p=state.dest.ll;try{const uri='https://router.project-osrm.org/route/v1/driving/'+d.ll[1]+','+d.ll[0]+';'+p[1]+','+p[0]+'?overview=full&geometries=geojson';const r=await fetch(uri),j=await r.json();const line=j.routes?.[0]?.geometry;if(line){L.geoJSON(line,{style:{color:'#1d57d4',weight:4,opacity:.8}}).addTo(routeGroup);map.fitBounds(routeGroup.getBounds(),{padding:[45,45],maxZoom:12})}}catch(e){console.warn('route overlay',e)}}
 document.addEventListener('DOMContentLoaded',init);
 </script></body></html>
+
+
 
