@@ -1,42 +1,45 @@
-# School attendance boundary data — North Dallas Explorer
+# North Dallas Explorer — attendance boundaries and campus data audit
 
-Generated / reviewed: 2026-11-03 (America/New_York)
+Reviewed: **2026-11-05**, school year **2026–27**.
 
-## Automated map layers
+## Verified map layer coverage
 
-| File | District | Polygons | Original authority | School-year / record vintage | Status |
-| --- | --- | ---: | --- | --- | --- |
-| `plano-attendance-2019.geojson` | Plano ISD | 132 | City of Plano OpenData SchoolAttendanceZones FeatureServer (layers 0–3) | 2019–20 (metadata updated Jan 2020) | Historical reference only |
-| `allen-attendance-historical.geojson` | Allen ISD | 20 | City of Allen GIS School_Attendance_Boundary_[Elementary/Middle/High_School] | 2023 (elementary, middle); 2019 (high) | Historical reference only |
+| District | 2026–27 authoritative lookup | Map polygons currently shown | Release status |
+| --- | --- | --- | --- |
+| Frisco ISD (FISD) | [2026–27 zone search](https://www.friscoisd.org/page/2026-2027-zones/) | Current official 2026–27 search polygons fetched from `static.friscoisd.org`; conditional on successful browser fetch | CURRENT BY SOURCE, address lookup is authoritative |
+| Plano ISD (PISD) | [Official SchoolFinder](https://www.pisd.edu/district-resources/schools-facilities/schools-other-facilities/schoolfinder) | `plano-attendance-2019.geojson` (132 features, 2019–20) | HISTORICAL ONLY |
+| Allen ISD (AISD) | [Find a School](https://www.allenisd.org/page/findaschool) | `allen-attendance-historical.geojson` (20 features, 2019 high / 2023 elementary-middle) | HISTORICAL ONLY |
+| Prosper ISD | [Official attendance boundaries](https://www.prosper-isd.net/page/attendance-boundaries/) | None. 2026–27 approved map PDFs exist, but polygon conversion/georeferencing has not been validated | LINK ONLY |
+| Lewisville ISD (LISD) | [2026–27 School Locator](https://www.lisd.net/resources/families/school-locator) | None. Locator is current; no audited vector export is supplied in this application | LINK ONLY |
+| Carrollton–Farmers Branch ISD (CFB) | [School Search](https://www.cfbisd.edu/students/school-maps-locator-system) reflecting **March 6, 2025** approved zones for 2026–27 registrations | None. Geometry not audited or imported | LINK ONLY |
 
-Each feature contains a `school` name, `sourceDistrict`, `gradeLevel`, `sourceVintage`, and `current:false` field. ZIP ZCTAs are separate from attendance boundaries. No public map should imply historical zones are current admission-eligible residences.
+**Important:** the existence of a current address locator does not mean its underlying geometry was obtained, georeferenced, and audited for this dashboard. A ZIP/ZCTA layer is **not** an attendance-boundary layer. School locations are **not** attendance boundaries. No historical polygons are represented as current.
 
-The website automatically fetches both GeoJSON files, matches the clicked school to its area, and displays historical polygons in orange dashed borders alongside explicit year labels and links to official current address lookups. No user upload is necessary.
+## School catalog coverage
 
-## Matching QA
+- `schools.json`: 73 City of Plano GIS school records (PISD and FISD), positions last updated 2022.
+- `schools2026-{1..4}.json`: 26 geocoded school records (FISD / AISD / Prosper).
+- `ratings2026.json`: 108 externally compiled, source-linked 2026 **A-rated** campus results across four districts (coverage is intentionally incomplete).
+- `district-schools-2026.json`: **53 Lewisville ISD** and **31 CFB ISD** schools from their official school lists, reviewed 2026-11-05. Those campus names are included in search and filters, but **no guessed geocoding coordinates** are distributed.
+- The same new file contains **31 CFB campus ratings for 2026**, copied from [CFB ISD's official 2026 campus-level ratings table](https://www.cfbisd.edu/departments/assessment-accountability/ratings). All grades A–F are shown where verified; an unrated campus is labeled unverified rather than failing.
 
-Compared map data with known school names from the municipal 2022 coordinates and published 2026 A-rated school listings:
+Sources:
+- LISD [official A–Z school list](https://www.lisd.net/our-district/about/a-z-school-list)
+- CFB [official schools](https://www.cfbisd.edu/schools)
+- CFB [official performance reporting](https://www.cfbisd.edu/departments/assessment-accountability/ratings)
+- TEA [2026 rating release](https://tea.texas.gov/about-tea/newsroom/tea-releases-2026-f-accountability-ratings-txschoolsgov)
 
-- Plano ISD: 62 of 63 known campuses have a matching historical polygon (Academy High School is an unmatched specialty campus).
-- Allen ISD: 12 of 14 known campuses have matching historical polygons (George J Anderson Early Childhood School and Lowery Freshman Center excluded). Nine matches use unique campus surname aliases.
-- Match totals indicate historical data linkage only, **not** current boundary accuracy.
+## Outstanding validation tasks
 
-## Current 2026–27 sources
+1. Obtain verifiably 2026–27 school-level ArcGIS features or approved export from Plano/Allen/Prosper/LISD/CFB. For PDF-only zones, geo-reference and independently compare against the district address locator at parcel-level samples before importing.
+2. Verify ZIP school assignments for several boundary-adjacent addresses. No school assignment is inferred just from ZIP, neighborhood names, or school proximity.
+3. Geocode LISD and CFB schools against independently checked campus addresses. Display markers only after verification.
+4. Monitor the **2027–28 Prosper proposed rezoning** separately; do not display proposals as current year boundaries. As of November 5, 2026, board presentation for Nov 16 was still pending.
+5. Refresh district school lists and TEA scores periodically, showing the checked date and provenance.
 
-- Frisco ISD official zone search: https://www.friscoisd.org/page/2026-2027-zones/
-- Frisco ISD official 2026–27 map PDFs: https://www.friscoisd.org/page/2026-2027-zones/ and https://www.friscoisd.org/page/zone-downloads/
-- Prosper ISD official zone maps / address lookup: https://www.prosper-isd.net/page/attendance-boundaries/
-- Plano ISD official descriptions: https://www.pisd.edu/district-resources/schools-facilities/schools-other-facilities/attendance-boundary-descriptions
-- Plano 2025–26 closures/rezoning: https://www.pisd.edu/about-our-district/long-range-facility-plan/background
-- Allen ISD official address check: https://www.allenisd.org/page/findaschool
+## Release checks
 
-**Newer campus-level polygons are not yet available as a verified public georeferenced vector source for Frisco, Prosper, or the rezoned 2026 Plano geography.** Color-coded schematic PDF maps cannot safely be interpreted as precise parcel-level polygons without georeferencing and independent map/address-level validation. The dashboard links to the current official 2026–27 lookup rather than generating false boundaries.
-
-## Other map data
-
-- `zips.geojson`: 11 NCTCOG/Census ZCTAs, not school zones.
-- `schools.json`: 73 City of Plano GIS coordinates, last updated 2022.
-- `schools2026-{1,2,3,4}.json`: 26 2026 address-based geocoded locations, quality-filtered. Combined map coverage 96 school coordinates after deduplicating.
-- `ratings2026.json`: 108 A-rated scores from published 2026 campus lists citing TEA; absence from this list must be displayed as unverified, not as a failing grade.
-- OSRM route-duration estimates do not include traffic. Exact address-to-campus assignment must always be checked with the district.
-
+- JavaScript parser validation of `docs/index.html`.
+- JSON schema, names, score ranges/grade mapping, duplicate campus checks and six-district dropdown coverage.
+- Live GitHub Pages browser regression for base map, ZIP selection, school search, district filter, official links and map-layer freshness warnings.
+- Automated status labels must never state that an unverified layer is current.
