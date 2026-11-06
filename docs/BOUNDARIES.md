@@ -7,13 +7,21 @@ Reviewed: **2026-11-05**, school year **2026–27**.
 | District | 2026–27 authoritative lookup | Map polygons currently shown | Release status |
 | --- | --- | --- | --- |
 | Frisco ISD (FISD) | [2026–27 zone search](https://www.friscoisd.org/page/2026-2027-zones/) | Current official 2026–27 search polygons fetched from `static.friscoisd.org`; conditional on successful browser fetch | CURRENT BY SOURCE, address lookup is authoritative |
-| Plano ISD (PISD) | [Official SchoolFinder](https://www.pisd.edu/district-resources/schools-facilities/schools-other-facilities/schoolfinder) | `plano-attendance-2019.geojson` (132 features, 2019–20) | HISTORICAL ONLY |
+| Plano ISD (PISD) | [Official SchoolFinder](https://www.pisd.edu/district-resources/schools-facilities/schools-other-facilities/schoolfinder) | `plano-attendance-2025.geojson` (64 features, 2025–26 official PISD ArcGIS: 44 elementary, 11 middle, 6 high, 3 senior high) | 2025–26 OFFICIAL SOURCE; 2026–27 EQUIVALENCE UNVERIFIED |
 | Allen ISD (AISD) | [Find a School](https://www.allenisd.org/page/findaschool) | `allen-attendance-historical.geojson` (20 features, 2019 high / 2023 elementary-middle) | HISTORICAL ONLY |
 | Prosper ISD | [Official attendance boundaries](https://www.prosper-isd.net/page/attendance-boundaries/) | None. 2026–27 approved map PDFs exist, but polygon conversion/georeferencing has not been validated | LINK ONLY |
 | Lewisville ISD (LISD) | [2026–27 School Locator](https://www.lisd.net/resources/families/school-locator) | None. Locator is current; no audited vector export is supplied in this application | LINK ONLY |
 | Carrollton–Farmers Branch ISD (CFB) | [School Search](https://www.cfbisd.edu/students/school-maps-locator-system) reflecting **March 6, 2025** approved zones for 2026–27 registrations | None. Geometry not audited or imported | LINK ONLY |
 
-**Important:** the existence of a current address locator does not mean its underlying geometry was obtained, georeferenced, and audited for this dashboard. A ZIP/ZCTA layer is **not** an attendance-boundary layer. School locations are **not** attendance boundaries. No historical polygons are represented as current.
+**Important:** the existence of a current address locator does not mean its underlying geometry was obtained, georeferenced, and audited for this dashboard.
+
+### Plano ArcGIS verification — 2026-11-05
+
+The official [2026–27 SchoolFinder](https://www.pisd.edu/district-resources/schools-facilities/schools-other-facilities/schoolfinder) links to ArcGIS Experience item `73a3f873d9c040348d6e723ed4b48af4` (owner `blueraster.pisd`), which uses Plano ISD web map item `68c373c99db1425e9f0030a689efa742`. Its four *public official* boundary layers at `https://services4.arcgis.com/uBV8NRVfoRJv7qWn/arcgis/rest/services/Plano_ISD_School_Districts/FeatureServer/` are named **Senior High 2526**, **High 2526**, **Middle 2526**, **Elementary 2526** (IDs 0–3). Their ArcGIS editingInfo data timestamps are from March–April 2025. These are **not** marked as verified 2026–27 geometries despite the parent web page's 2026–27 heading.
+
+The new `plano-attendance-2025.geojson` contains 64 complete polygons queried directly from those layer endpoints with WGS84 longitude-latitude coordinates. Coverage: 3 senior high, 6 high, 11 middle, 44 elementary. All features set `current:false`, `sourceVintage:"2025–26"`, `sourceDistrict:"PISD"`; map overlays use orange historical styling. 61 of 63 Plano schools in `schools.json` match these official polygons by grade and normalized name. `ROSE HAGGAR ELEMENTARY SCHOOL` and `ACADEMY HIGH SCHOOL` are unmatched and receive no inferred polygons.
+
+The historical `plano-attendance-2019.geojson` is retained for provenance/rollback but no longer displayed. No claim is made that the 2025–26 geometries are unchanged for 2026–27; compare actual address-level results with the current locator before decisions. A ZIP/ZCTA layer is **not** an attendance-boundary layer. School locations are **not** attendance boundaries. No historical polygons are represented as current.
 
 ## School catalog coverage
 
