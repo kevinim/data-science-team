@@ -1,0 +1,797 @@
+{
+  "schoolYear": "2026–27",
+  "reviewed": "2026-11-05",
+  "notes": "District campus catalogs, not proof of school assignment. School positions must be independently verified and are intentionally absent for newly imported campuses.",
+  "sources": {
+    "LISD": "https://www.lisd.net/our-district/about/a-z-school-list",
+    "CFB": "https://www.cfbisd.edu/schools",
+    "CFBratings": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+  },
+  "schools": [
+    {
+      "name": "Bluebonnet Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Bridlewood Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Camey Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Castle Hills Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Central Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Coyote Ridge Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Degan Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Donald Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Ethridge Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Flower Mound Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Forest Vista Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Hebron Valley Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Heritage Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Hicks Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Homestead Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Independence Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Indian Creek Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Lakeland Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Lewisville Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Liberty Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "McAuliffe Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Memorial Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Morningside Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Old Settlers Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Parkway Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Peters Colony Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Prairie Trail Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Rockbrook Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Southridge Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Timber Creek Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Valley Ridge Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Vickery Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Wellington Elementary School",
+      "type": "elementary",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Arbor Creek Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Briarhill Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Creek Valley Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "DeLay Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Downing Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Durham Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Forestwood Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Griffin Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Hedrick Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Huffines Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Killian Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Lakeview Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Lamar Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "McKamy Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Shadow Ridge Middle School",
+      "type": "middle",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Flower Mound High School",
+      "type": "high",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Hebron High School",
+      "type": "high",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Lewisville High School",
+      "type": "high",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Marcus High School",
+      "type": "high",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "The Colony High School",
+      "type": "high",
+      "district": "LISD",
+      "source": "Lewisville ISD official A-Z campus list (2026-11-05 review)"
+    },
+    {
+      "name": "Blair Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Blanton Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Carrollton Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Country Place Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Davis Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Farmers Branch Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Freeman Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Good Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Kent Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Landry Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Las Colinas Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "La Villita Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "McKamy Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "McLaughlin Strickland Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "McWhorter Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Rainwater Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Riverchase Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Rosemeade Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Sheffield Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Stark Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Thompson Elementary School",
+      "type": "elementary",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Barbara Bush Middle School",
+      "type": "middle",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Blalack Middle School",
+      "type": "middle",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Vivian Field Middle School",
+      "type": "middle",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Perry Middle School",
+      "type": "middle",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Polk Middle School",
+      "type": "middle",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Creekview High School",
+      "type": "high",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Early College High School",
+      "type": "high",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Newman Smith High School",
+      "type": "high",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "R. L. Turner High School",
+      "type": "high",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    },
+    {
+      "name": "Ranchview High School",
+      "type": "high",
+      "district": "CFB",
+      "source": "CFBISD official Schools directory (2026-11-05 review)"
+    }
+  ],
+  "ratings": [
+    {
+      "name": "Blair Elementary School",
+      "district": "CFB",
+      "score": 91,
+      "rating": "A",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Blanton Elementary School",
+      "district": "CFB",
+      "score": 80,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Carrollton Elementary School",
+      "district": "CFB",
+      "score": 90,
+      "rating": "A",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Country Place Elementary School",
+      "district": "CFB",
+      "score": 85,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Davis Elementary School",
+      "district": "CFB",
+      "score": 76,
+      "rating": "C",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Farmers Branch Elementary School",
+      "district": "CFB",
+      "score": 86,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Freeman Elementary School",
+      "district": "CFB",
+      "score": 85,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Good Elementary School",
+      "district": "CFB",
+      "score": 90,
+      "rating": "A",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Kent Elementary School",
+      "district": "CFB",
+      "score": 91,
+      "rating": "A",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Landry Elementary School",
+      "district": "CFB",
+      "score": 84,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Las Colinas Elementary School",
+      "district": "CFB",
+      "score": 93,
+      "rating": "A",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "La Villita Elementary School",
+      "district": "CFB",
+      "score": 86,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "McKamy Elementary School",
+      "district": "CFB",
+      "score": 79,
+      "rating": "C",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "McLaughlin Strickland Elementary School",
+      "district": "CFB",
+      "score": 72,
+      "rating": "C",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "McWhorter Elementary School",
+      "district": "CFB",
+      "score": 69,
+      "rating": "D",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Rainwater Elementary School",
+      "district": "CFB",
+      "score": 90,
+      "rating": "A",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Riverchase Elementary School",
+      "district": "CFB",
+      "score": 79,
+      "rating": "C",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Rosemeade Elementary School",
+      "district": "CFB",
+      "score": 87,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Sheffield Elementary School",
+      "district": "CFB",
+      "score": 72,
+      "rating": "C",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Stark Elementary School",
+      "district": "CFB",
+      "score": 74,
+      "rating": "C",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Thompson Elementary School",
+      "district": "CFB",
+      "score": 77,
+      "rating": "C",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Barbara Bush Middle School",
+      "district": "CFB",
+      "score": 71,
+      "rating": "C",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Blalack Middle School",
+      "district": "CFB",
+      "score": 83,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Vivian Field Middle School",
+      "district": "CFB",
+      "score": 86,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Perry Middle School",
+      "district": "CFB",
+      "score": 84,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Polk Middle School",
+      "district": "CFB",
+      "score": 56,
+      "rating": "F",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Creekview High School",
+      "district": "CFB",
+      "score": 93,
+      "rating": "A",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Early College High School",
+      "district": "CFB",
+      "score": 98,
+      "rating": "A",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Newman Smith High School",
+      "district": "CFB",
+      "score": 84,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "R. L. Turner High School",
+      "district": "CFB",
+      "score": 82,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    },
+    {
+      "name": "Ranchview High School",
+      "district": "CFB",
+      "score": 87,
+      "rating": "B",
+      "year": 2026,
+      "source": "https://www.cfbisd.edu/departments/assessment-accountability/ratings",
+      "official": "https://www.cfbisd.edu/departments/assessment-accountability/ratings"
+    }
+  ]
+}
