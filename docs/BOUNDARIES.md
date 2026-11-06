@@ -10,7 +10,7 @@ Reviewed: **2026-11-05**, school year **2026–27**.
 | Plano ISD (PISD) | [Official SchoolFinder](https://www.pisd.edu/district-resources/schools-facilities/schools-other-facilities/schoolfinder) | `plano-attendance-2025.geojson` (64 features, 2025–26 official PISD ArcGIS: 44 elementary, 11 middle, 6 high, 3 senior high) | 2025–26 OFFICIAL SOURCE; 2026–27 EQUIVALENCE UNVERIFIED |
 | Allen ISD (AISD) | [Find a School](https://www.allenisd.org/page/findaschool) | `allen-attendance-historical.geojson` (20 features, 2019 high / 2023 elementary-middle) | HISTORICAL ONLY |
 | Prosper ISD | [Official attendance boundaries](https://www.prosper-isd.net/page/attendance-boundaries/) | None. 2026–27 approved map PDFs exist, but polygon conversion/georeferencing has not been validated | LINK ONLY |
-| Lewisville ISD (LISD) | [2026–27 School Locator](https://www.lisd.net/resources/families/school-locator) | None. Locator is current; no audited vector export is supplied in this application | LINK ONLY |
+| Lewisville ISD (LISD) | [2026–27 School Locator](https://www.lisd.net/resources/families/school-locator) | None. Its official-linked GIS WebMap title says `SZF 2627`, but the high-school boundary layer has `SCHL_YEAR: 2025-26` and elementary/middle do not provide a verified school-year field | LINK ONLY; source-year mismatch requires follow-up |
 | Carrollton–Farmers Branch ISD (CFB) | [School Search](https://www.cfbisd.edu/students/school-maps-locator-system) reflecting **March 6, 2025** approved zones for 2026–27 registrations | None. Geometry not audited or imported | LINK ONLY |
 
 **Important:** the existence of a current address locator does not mean its underlying geometry was obtained, georeferenced, and audited for this dashboard.
@@ -22,6 +22,14 @@ The official [2026–27 SchoolFinder](https://www.pisd.edu/district-resources/sc
 The new `plano-attendance-2025.geojson` contains 64 complete polygons queried directly from those layer endpoints with WGS84 longitude-latitude coordinates. Coverage: 3 senior high, 6 high, 11 middle, 44 elementary. All features set `current:false`, `sourceVintage:"2025–26"`, `sourceDistrict:"PISD"`; map overlays use orange historical styling. 61 of 63 Plano schools in `schools.json` match these official polygons by grade and normalized name. `ROSE HAGGAR ELEMENTARY SCHOOL` and `ACADEMY HIGH SCHOOL` are unmatched and receive no inferred polygons.
 
 The historical `plano-attendance-2019.geojson` is retained for provenance/rollback but no longer displayed. No claim is made that the 2025–26 geometries are unchanged for 2026–27; compare actual address-level results with the current locator before decisions. A ZIP/ZCTA layer is **not** an attendance-boundary layer. School locations are **not** attendance boundaries. No historical polygons are represented as current.
+
+### Lewisville official WebMap inspection — 2026-11-05
+
+The official LISD 2026–27 locator page links to ArcGIS WebAppBuilder app `8b1628e7345e4a98a4dcf6c852581656` via `portal.metrostudygis.com`. Its public item title is **Lewisville ISD 2026-27**, and its referenced web-map item is `03c099e24d304c4fa0f4ce8a76c10062`, titled **Lewisville SZF 2627**.
+
+Web map operational feature collections contain 676 elementary geometry pieces (34 distinct elementary school labels), 15 middle-school polygons, 5 high-school polygons, and 59 school location points. **This is not proof of 2026–27 polygon vintage:** all five high polygons contain `SCHL_YEAR: 2025-26`; the elementary and middle feature sets have no authoritative source-year field; the school point layer has `SCHL_YEAR: 2016-17`. The underlying source labels are mixed/undated despite the app's newer display title.
+
+Decision: **do not import these polygons as verified 2026–27 attendance boundaries**. Obtain confirmation from LISD/its GIS vendor that the source polygons implement the 2026–27 boundaries, or obtain a newly versioned export. The official address-specific locator remains authoritative. Source map: https://portal.metrostudygis.com/arcgis/sharing/rest/content/items/03c099e24d304c4fa0f4ce8a76c10062/data?f=json
 
 ## School catalog coverage
 
