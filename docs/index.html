@@ -158,6 +158,26 @@ async function loadExtra2026SchoolLocations(){
  console.info('Verified 2026 campus coordinates processed:',inserted);
 }
 
+async function loadDistrictCatalogs(){
+ try {
+  const response=await fetch('./district-schools-2026.json',{cache:'no-store'});
+  if(!response.ok)throw Error('HTTP '+response.status);
+  const dataset=await response.json();
+  if(dataset.schoolYear!=='2026–27'||!Array.isArray(dataset.schools)||!Array.isArray(dataset.ratings))throw Error('학교 목록 형식 오류');
+  const valid=dataset.schools.filter(row=>row.name&&['elementary','middle','high'].includes(row.type)&&['LISD','CFB'].includes(row.district));
+  if(valid.length!==84)throw Error('검증된 84개 캠퍼스 데이터 누락');
+  valid.forEach(row=>addSchool(row));
+  const verified=dataset.ratings.filter(row=>row.year===2026&&row.district==='CFB'&&Number.isInteger(row.score)&&row.score>=0&&row.score<=100&&row.official==='https://www.cfbisd.edu/departments/assessment-accountability/ratings');
+  if(verified.length!==31)throw Error('CFB 2026 평가 데이터 누락');
+  state.ratings.push(...verified);
+  state.schools.sort((a,b)=>a.name.localeCompare(b.name));
+  drawSchools();drawList();
+  el('directoryStatus').textContent='Lewisville 53개·CFB 31개 학교 목록 추가 완료 (공식 학군 목록, 2026-11-05 검토). 추가 학교 84곳은 정확한 좌표가 미검증이므로 지도 마커를 표시하지 않습니다. 이 학교의 배정은 공식 검색기를 확인하세요.';
+ } catch(error) {
+  console.error('District catalog:',error);
+  el('directoryStatus').textContent='Lewisville·CFB 학교 목록을 불러오지 못했습니다: '+error.message+' · 공식 학군 학교 검색기를 이용하세요.';
+ }
+}
 async function geocodeSchool(s){
  if(!s.address)return false;
  try{
@@ -243,7 +263,7 @@ async function schoolClicked(s){
  if(window.innerWidth<721)el('detailContent').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 function drawSchools(){if(!map)return;schoolGroup.clearLayers();if(!state.showSchools)return;const z=map.getZoom();const items=state.schools.filter(s=>s.ll&&(state.district==='all'||s.district===state.district)&&(state.level==='all'||s.type===state.level)&&(state.ratingFilter!=='rated'||score(s.name,s.district)!==null)&&(state.level!=='all'||z>=12||s.type!=='elementary'));items.slice(0,260).forEach(s=>{const icon=L.divIcon({className:'',html:`<div class="mapmark ${s.type}">${s.type==='elementary'?'E':s.type==='middle'?'M':'H'}</div>`,iconSize:[27,27],iconAnchor:[13,13]});L.marker(s.ll,{icon,title:s.name}).addTo(schoolGroup).on('click',()=>schoolClicked(s))})}
-function drawList(){let items=state.schools.filter(s=>(state.district==='all'||s.district===state.district)&&(state.level==='all'||s.type===state.level)&&(state.ratingFilter!=='rated'||score(s.name,s.district)!==null)&&(!state.schoolQuery||s.name.toLowerCase().includes(state.schoolQuery)));el('schoolList').innerHTML=items.slice(0,135).map((s,i)=>{const r=score(s.name,s.district);return `<button class="school" data-sid="${state.schools.indexOf(s)}"><span><b>${escape(s.name)}</b><small>${gradeTag(s)} · ${escape(s.district||'배정 학군 확인 필요')} ${s.ll?'· 지도 위치 있음':''}</small></span><span class="score ${r===null?'nr':r>=90?'rated':'partial'}">${r===null?'TEA ↗':`${ratingGrade(r)} · ${r}`}</span></button>`}).join('')||'<div class="muted" style="padding:14px">검색 결과 없음</div>';el('schoolCount').textContent=state.schools.length+'개 학교 · 위치 '+state.schools.filter(s=>s.ll).length+'개';el('schoolList').querySelectorAll('button').forEach(b=>b.onclick=()=>schoolClicked(state.schools[+b.dataset.sid]))}
+function drawList(){let items=state.schools.filter(s=>(state.district==='all'||s.district===state.district)&&(state.level==='all'||s.type===state.level)&&(state.ratingFilter!=='rated'||score(s.name,s.district)!==null)&&(!state.schoolQuery||s.name.toLowerCase().includes(state.schoolQuery)));el('schoolList').innerHTML=items.slice(0,135).map((s,i)=>{const r=score(s.name,s.district);return `<button class="school" data-sid="${state.schools.indexOf(s)}"><span><b>${escape(s.name)}</b><small>${gradeTag(s)} · ${escape(s.district||'배정 학군 확인 필요')} ${s.ll?'· 지도 위치 있음':''}</small></span><span class="score ${r===null?'nr':r>=90?'rated':'partial'}">${r===null?'TEA ↗':`${ratingGrade(r)} · ${r}`}</span></button>`}).join('')||'<div class="muted" style="padding:14px">검색 결과 없음</div>';el('schoolCount').textContent=items.length+'개 검색 / 전체 '+state.schools.length+'개 · 위치 '+state.schools.filter(s=>s.ll).length+'개';el('schoolList').querySelectorAll('button').forEach(b=>b.onclick=()=>schoolClicked(state.schools[+b.dataset.sid]))}
 
 
 function zoneNameKey(name){
