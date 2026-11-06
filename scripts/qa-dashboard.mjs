@@ -65,6 +65,7 @@ check('official Plano polygon names match campus directory', () => {
  const matches=campuses.filter(s=>plano.features.some(f=>(s.type==='high'?['senior','high']:s.type==='middle'?['middle']:['elementary']).includes(f.properties.gradeLevel)&&key(f.properties.school)===key(s.name)));
  assert.equal(matches.length,61);
 });
+check('Lewisville source-year mismatch is visible', () => assert.ok(html.includes('고등 경계 2025–26 / 초·중등 연도 미검증')));
 check('compact map', () => assert.ok(html.includes('#map{height:420px;max-height:62vh}')));
 check('new school directory is loaded', () => assert.ok(inline.includes('.then(loadDistrictCatalogs)')));
 check('HTML IDs have no duplicates', () => {
